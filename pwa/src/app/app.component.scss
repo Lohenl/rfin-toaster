@@ -1,0 +1,84 @@
+.app-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.app-outlet.unicorn-dark-theme {
+    background: grey;
+}
+
+.app-sidenav {
+    padding: 0px 10px 0 10px;
+    display: flex;
+}
+
+.toolbar-spacer {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+button.sidemenu {
+    transition: color 0.5s ease;
+    width: 100%;
+    text-align:left;
+    font-size: 0.8em;
+    font-weight: strong;
+}
+
+button.sidemenu:hover {
+    color:rgb(0, 180, 0);
+}
+
+.mat-icon {
+    transform: scale(0.75);
+}
+
+.sidemenu-title {
+    transition: background-color 0.5s ease;
+    color: rgb(0, 255, 55);
+    font: "Titillium Web";
+    background-color: #fff;
+}
+
+.sidemenu-title.unicorn-dark-theme {
+    background-color: #424242;
+}
+
+.sidemenu-header {
+    color: rgb(184, 184, 184);
+    font-size: .75em;
+}
+
+mat-drawer{
+    transition: background-color 0.5s ease;
+}
+
+div { flex: 1 1 0; }
+mat-drawer-container { flex: 1 1 auto; }
+
+.app-topbar {
+    height: 5vh;
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.app-content {
+    min-height: 95vh;
+    display: flex;
+    width: 100%;
+}
+
+.mat-app-background {
+    transition: background-color 0.5s ease;
+}
+
+main { 
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    top: 5vh; 
+  }
