@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",
-    "startfull": "ng build --prod && node ./bin/www",
-    "start": "ng serve"
+    "start": "ng serve",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
