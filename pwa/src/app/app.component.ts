@@ -6,8 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+
+  constructor() { }
+  
   title = "TOΛZTΞR";
   showFiller = false;
   opened = true;
   isDarkTheme = true;
+
 }

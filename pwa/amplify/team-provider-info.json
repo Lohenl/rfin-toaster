@@ -10,6 +10,14 @@
             "StackName": "amplify-toastbankpwa-dev-00522",
             "StackId": "arn:aws:cloudformation:ap-southeast-1:694426563891:stack/amplify-toastbankpwa-dev-00522/c2b9b8b0-95fc-11ea-967b-0a59ed61233a",
             "AmplifyAppId": "d3nq2ydtcm5yeo"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3nq2ydtcm5yeo",
+                    "type": "manual"
+                }
+            }
         }
     }
 }

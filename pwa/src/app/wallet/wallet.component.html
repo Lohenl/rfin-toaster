@@ -1,0 +1,7 @@
+<p>wallet works!</p>
+
+<ul>
+    <li *ngFor="let item of todos">{{item.name}} - {{item.description}}</li>
+</ul>
+
+<button mat-icon-button (click)="createTodo()">Add Todo</button>
