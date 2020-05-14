@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-toastbankpwa-dev-00522-authRole",
+            "UnauthRoleArn": "arn:aws:iam::694426563891:role/amplify-toastbankpwa-dev-00522-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::694426563891:role/amplify-toastbankpwa-dev-00522-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-toastbankpwa-dev-00522-deployment",
+            "UnauthRoleName": "amplify-toastbankpwa-dev-00522-unauthRole",
+            "StackName": "amplify-toastbankpwa-dev-00522",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:694426563891:stack/amplify-toastbankpwa-dev-00522/c2b9b8b0-95fc-11ea-967b-0a59ed61233a",
+            "AmplifyAppId": "d3nq2ydtcm5yeo"
+        }
+    }
+}
