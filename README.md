@@ -1,4 +1,4 @@
-# Toastbank.
+# Toastbank. Simple as toast.
 
 Team Toasters' Toastbank: A simple Angular PWA backed with AWS Amplify, Express JS temporarily parked here in case Winston decides to go mad with K8's.
 
