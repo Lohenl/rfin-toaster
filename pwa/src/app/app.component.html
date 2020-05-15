@@ -1,4 +1,9 @@
-<mat-drawer-container class="app-container" autosize [class.unicorn-dark-theme]="isDarkTheme">
+<!-- Non-pwa page display -->
+<div *ngIf="nonPwaPages.includes(router.url)" class="mat-typography app-content-nonpwa">
+  <main><router-outlet></router-outlet></main>
+</div>
+
+<mat-drawer-container *ngIf="!nonPwaPages.includes(router.url)" class="app-container" autosize [class.unicorn-dark-theme]="isDarkTheme">
   <mat-drawer #drawer class="app-sidenav" mode="side" [(opened)]="opened">
     <mat-toolbar class="sidemenu-title" [class.unicorn-dark-theme]="isDarkTheme">
       <h1>{{title}}</h1>

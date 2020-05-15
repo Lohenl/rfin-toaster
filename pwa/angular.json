@@ -31,7 +31,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/universal-parallax.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,7 +100,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/universal-parallax.js"
+            ]
           }
         },
         "lint": {
