@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 // Routing
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -48,7 +49,8 @@ Amplify.configure(awsconfig);
     MatIconModule,
     MatToolbarModule,
     AmplifyUIAngularModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

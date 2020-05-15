@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/api",
+            "lambdaFunction": "webapp",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/mambu-getiddocument",
+            "lambdaFunction": "webapp",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "webapp",
+    "apiName": "webapp",
+    "functionArns": [
+        {
+            "lambdaFunction": "webapp"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-toastbankpwa-dev-00522-authRole",
+        "unAuthRoleName": "amplify-toastbankpwa-dev-00522-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "webapp",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "65879e8f"
+}

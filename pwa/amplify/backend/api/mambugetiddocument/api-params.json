@@ -1,0 +1,14 @@
+{
+    "paths": [],
+    "resourceName": "mambugetiddocument",
+    "apiName": "mambugetiddocument",
+    "functionArns": [],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-toastbankpwa-dev-00522-authRole",
+        "unAuthRoleName": "amplify-toastbankpwa-dev-00522-unauthRole"
+    },
+    "dependsOn": [],
+    "uuid": "fcf27672"
+}

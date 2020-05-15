@@ -1,0 +1,7 @@
+{
+    "https://razerhackathon.sandbox.mambu.com/": {
+        "target": "https://razerhackathon.sandbox.mambu.com/",
+        "secure": true,
+        "logLevel": "debug"
+    }
+}
