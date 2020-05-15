@@ -254,6 +254,115 @@ app.get('/api/mambu-savings/:accountId/transactions', function (req, res) {
     });
 });
 
+// 2.5 Get Current Account by ID
+app.get('/api/mambu-savings/:accountId', function (req, res) {
+    let options = mambuOptions;
+    let query = req.query;
+    options.path = '/api/savings/'+req.params.accountId;
+    if(query){
+        console.log(req.url);
+        console.log(url.parse(req.url).query)
+        options.path += '?'+url.parse(req.url).query;
+        console.log(options.path)
+    }
+    var req = https.get(options, r => {
+        r.setEncoding('utf8');
+        r.on('data', function (chunk) {
+            res.status(r.statusCode).send(chunk);
+        });
+    })
+    req.on('error', function (e) {
+        res.status(500).send(e || 'Unspecified Error');
+    });
+});
+
+// 3 Create Loan Account
+app.post('/api/mambu-loans/', function (req, res) {
+    let options = mambuOptions;
+    let postData = JSON.stringify(req.body);
+    let length = postData.length;
+    options.path = '/api/loans/';
+    options.method = 'POST';
+    options.headers['Content-Length'] = length;
+    var req = https.request(options, r => {
+        r.setEncoding('utf8');
+        r.on('data', function (chunk) {
+            res.status(r.statusCode).send(chunk);
+        });
+    })
+    req.on('error', function (e) {
+        res.status(500).send(e || 'Unspecified Error');
+    });
+    req.write(postData);
+    req.end();
+});
+
+// 3.4 Disburse Loan to Savings Account
+app.post('/api/mambu-loans/:loanAccount/transactions', function (req, res) {
+    let options = mambuOptions;
+    let postData = JSON.stringify(req.body);
+    let length = postData.length;
+    let loanAccount = req.params.loanAccount;
+    options.path = '/api/loans/'+loanAccount+'/transactions';
+    options.method = 'POST';
+    options.headers['Content-Length'] = length;
+    var req = https.request(options, r => {
+        r.setEncoding('utf8');
+        r.on('data', function (chunk) {
+            res.status(r.statusCode).send(chunk);
+        });
+    })
+    req.on('error', function (e) {
+        res.status(500).send(e || 'Unspecified Error');
+    });
+    req.write(postData);
+    req.end();
+});
+
+// 3.3 Get all Transactions for Loan Account
+app.get('/api/mambu-loans/:accountId/transactions', function (req, res) {
+    let options = mambuOptions;
+    let query = req.query;
+    options.path = '/api/loans/'+req.params.accountId+'/transactions';
+    if(query){
+        console.log(req.url);
+        console.log(url.parse(req.url).query)
+        options.path += '?'+url.parse(req.url).query;
+        console.log(options.path)
+    }
+    var req = https.get(options, r => {
+        r.setEncoding('utf8');
+        r.on('data', function (chunk) {
+            res.status(r.statusCode).send(chunk);
+        });
+    })
+    req.on('error', function (e) {
+        res.status(500).send(e || 'Unspecified Error');
+    });
+});
+
+// 2.5 Get Loan Account by ID
+app.get('/api/mambu-loans/:accountId', function (req, res) {
+    let options = mambuOptions;
+    let query = req.query;
+    options.path = '/api/loans/'+req.params.accountId;
+    if(query){
+        console.log(req.url);
+        console.log(url.parse(req.url).query)
+        options.path += '?'+url.parse(req.url).query;
+        console.log(options.path)
+    }
+    var req = https.get(options, r => {
+        r.setEncoding('utf8');
+        r.on('data', function (chunk) {
+            res.status(r.statusCode).send(chunk);
+        });
+    })
+    req.on('error', function (e) {
+        res.status(500).send(e || 'Unspecified Error');
+    });
+});
+
 app.listen(3000, function () {
     console.log("App started")
 });
