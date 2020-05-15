@@ -15,5 +15,6 @@ export class AppComponent {
   opened = true;
   isDarkTheme = true;
   nonPwaPages = ["/landing"];
+  sideMenuTooltipDisplayDelay = 500;
 
 }

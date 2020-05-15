@@ -20,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Amplify imports for authN 
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
@@ -46,7 +47,8 @@ Amplify.configure(awsconfig);
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-    AmplifyUIAngularModule 
+    AmplifyUIAngularModule,
+    MatTooltipModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
