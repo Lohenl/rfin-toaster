@@ -4,6 +4,7 @@
 </div>
 
 <mat-drawer-container *ngIf="!nonPwaPages.includes(router.url)" class="app-container" autosize [class.unicorn-dark-theme]="isDarkTheme">
+  <!-- Sidebar, separate when there's time -->
   <mat-drawer #drawer class="app-sidenav" mode="side" [(opened)]="opened">
     <mat-toolbar class="sidemenu-title" [class.unicorn-dark-theme]="isDarkTheme">
       <h1>{{title}}</h1>
@@ -12,37 +13,37 @@
       <span class="sidemenu-header">Your Accounts</span>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/dashboard" [routerLinkActive]="['is-active']">
         <mat-icon>remove_red_eye</mat-icon> At a Glance
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/wallet">
+      <button mat-button class="sidemenu" routerLink="/wallet" [routerLinkActive]="['is-active']">
         <mat-icon>account_balance_wallet</mat-icon>Wallet
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>credit_card</mat-icon> Cards
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>local_atm</mat-icon> Loans
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>date_range</mat-icon> Calendar View
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>description</mat-icon> Statements
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>announcement</mat-icon> Money Insights
       </button>
     </div>
@@ -50,22 +51,22 @@
       <span class="sidemenu-header">Payments and Transfers</span>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>send</mat-icon> Transfer Funds
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>monetization_on</mat-icon> Pay Bills
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>autorenew</mat-icon> GIRO Services
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>library_add</mat-icon> Top Up Cards
       </button>
     </div>
@@ -73,12 +74,12 @@
       <span class="sidemenu-header">Investments & Insurance</span>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>account_balance</mat-icon> Investments
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>security</mat-icon> Insurance
       </button>
     </div>
@@ -86,22 +87,22 @@
       <span class="sidemenu-header">More</span>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>search</mat-icon> Discover
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>school</mat-icon> Learn
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>emoji_events</mat-icon> Rewards
       </button>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/shoobplaceholder" [routerLinkActive]="['is-active']">
         <mat-icon>sports_esports</mat-icon> Games
       </button>
     </div>
@@ -109,7 +110,7 @@
       <span class="sidemenu-header">Demo Shortcuts</span>
     </div>
     <div>
-      <button mat-button class="sidemenu" routerLink="/dashboard">
+      <button mat-button class="sidemenu" routerLink="/login">
         <mat-icon>lock</mat-icon> Login
       </button>
     </div>
