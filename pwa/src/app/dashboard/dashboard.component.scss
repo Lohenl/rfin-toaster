@@ -1,0 +1,53 @@
+mat-accordion {
+  margin: 10px;
+}
+
+mat-card-header.youhave {
+  min-width: 40vw;
+}
+
+mat-card-header.youowe {
+  min-width: 40vw;
+}
+
+mat-expansion-panel-header{
+  transition: background-color 0.5s ease;
+}
+
+mat-expansion-panel-header.is-open {
+  background-color: darkgreen !important;
+}
+
+mat-card-content.youhave {
+  text-align: center;
+  color: green;
+  font-size: 2em;
+}
+
+mat-card-content.youowe {
+  text-align: center;
+  color: red;
+  font-size: 2em;
+}
+
+mat-card {
+  margin: 10px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.data-table{
+  width: 100%;
+}
