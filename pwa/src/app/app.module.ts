@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+// Angular Routing
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 // Angular Form Modules
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -36,7 +39,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
