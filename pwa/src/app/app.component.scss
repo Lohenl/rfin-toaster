@@ -8,14 +8,6 @@ main {
 
 div { flex: 1 1 0; }
 
-.app-topbar {
-    height: 5vh;
-    position: sticky;
-    position: -webkit-sticky; /* For macOS/iOS Safari */
-    top: 0; /* Sets the sticky toolbar to be on top */
-    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-}
-
 .app-content {
     min-height: 95vh;
     display: flex;
@@ -47,6 +39,15 @@ div { flex: 1 1 0; }
 .app-sidenav {
     padding: 0px 10px 0 10px;
     display: flex;
+}
+
+.app-topbar {
+    height: 5vh;
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    min-width: 40vw;
 }
 
 .mat-app-background {

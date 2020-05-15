@@ -51,3 +51,33 @@ mat-card {
 .data-table{
   width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+  mat-panel-description {
+    display: none;
+  }
+
+  mat-card-header.youhave {
+    min-width: 40vw;
+  }
+  
+  mat-card-header.youowe {
+    min-width: 40vw;
+  }
+
+  mat-card-content.youhave {
+    text-align: center;
+    color: green;
+    font-size: 1.5em;
+  }
+  
+  mat-card-content.youowe {
+    text-align: center;
+    color: red;
+    font-size: 1.5em;
+  }
+
+  .mat-card-title{
+    font-size: 1em;
+  }
+}
