@@ -14,6 +14,6 @@ export class AppComponent {
   showFiller = false;
   opened = true;
   isDarkTheme = true;
-  nonPwaPages = ["/landing","/login"];
+  nonPwaPages = ["/landing"];
 
 }

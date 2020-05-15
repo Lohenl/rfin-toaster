@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from '../API.service';
+import { APIService } from '../api/amplify/API.service';
 
 @Component({
   selector: 'app-wallet',

@@ -17,6 +17,9 @@
                     "appId": "d3nq2ydtcm5yeo",
                     "type": "manual"
                 }
+            },
+            "auth": {
+                "toastbankpwa61033553": {}
             }
         }
     }

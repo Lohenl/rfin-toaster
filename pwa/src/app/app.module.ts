@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-// Angular Routing
+// Routing
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-// Angular Form Modules
+// Form Modules
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Material
@@ -20,6 +20,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+// Amplify imports for authN 
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+import Amplify from 'aws-amplify';
+import awsconfig from '../aws-exports';
+
+// Configure Amplify resources
+Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [
@@ -38,6 +46,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
+    AmplifyUIAngularModule 
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
