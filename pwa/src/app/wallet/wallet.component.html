@@ -10,17 +10,17 @@
 <form [formGroup]="firstFormGroup">
     <mat-form-field>
         <mat-label>Transfer Sending Account</mat-label>
-        <input matInput formControlName="transferSendingAccount" placeholder="LZDG498" required>
+        <input matInput formControlName="transferSendingAccount" placeholder="LZDG498">
     </mat-form-field>
     <br>
     <mat-form-field>
         <mat-label>Transfer Receiving Account</mat-label>
-        <input matInput formControlName="transferReceivingAccount" placeholder="OCZX214" required>
+        <input matInput formControlName="transferReceivingAccount" placeholder="OCZX214">
     </mat-form-field>
     <br>
     <mat-form-field>
         <mat-label>Transfer Amount</mat-label>
-        <input matInput formControlName="transferAmount" placeholder="1" required>
+        <input matInput formControlName="transferAmount" placeholder="1">
     </mat-form-field>
 </form><br>
 <button mat-raised-button (click)="testMambu6()">2.2 Current Account Transfer</button><br>
@@ -28,13 +28,56 @@
 <form [formGroup]="secondFormGroup">
     <mat-form-field>
         <mat-label>Transactions Query Account</mat-label>
-        <input matInput formControlName="allTxAcctQueryId" placeholder="OCZX214" required>
+        <input matInput formControlName="allTxAcctQueryId" placeholder="OCZX214">
     </mat-form-field>
     <br>
 </form><br>
 <button mat-raised-button (click)="getAllTxForCurrentAccount()">2.3 Get all Transactions for Current Account</button><br>
 <button mat-raised-button (click)="getOneTxByTxId()">2.4 Get one Transaction for Current Account</button><br>
 <button mat-raised-button (click)="getCurrentAcctById()">2.5 Get Current Account By ID</button><br>
+
+<form [formGroup]="thirdFormGroup">
+    <mat-form-field>
+        <mat-label>Account Holder ID</mat-label>
+        <input matInput formControlName="acctHolderId" placeholder="8a8e879472175064017219acd65c2478 ">
+    </mat-form-field>
+    <br>
+</form><br>
+<button mat-raised-button (click)="createLoanAccount()">3 Create Loan Account</button><br>
+
+<form [formGroup]="fourthFormGroup">
+    <mat-form-field>
+        <mat-label>Loan ID</mat-label>
+        <input matInput formControlName="loanId" placeholder="JZAQ508">
+    </mat-form-field>
+    <br>
+</form><br>
+<button mat-raised-button (click)="disburseLoanToSavingsAcct()">3.1 Disburse Loan to Savings Account</button><br>
+<button mat-raised-button (click)="applyFeeToLoanAccount()">3.2 Apply fee to Loan Account</button><br>
+<button mat-raised-button (click)="getAllTxForLoanAccount()">3.3 Get All Transactions for Loan Account</button><br>
+<button mat-raised-button (click)="getOneTxByLoanId()">3.3 Get One Transaction for Loan Account</button><br>
+<button mat-raised-button (click)="getLoanAccount()">3.4 Get Loan Account by ID</button><br>
+
+
+<form [formGroup]="thirdFormGroup">
+    <mat-form-field>
+        <mat-label>Account Holder ID</mat-label>
+        <input matInput formControlName="acctHolderId" placeholder="8a8e879472175064017219acd65c2478 ">
+    </mat-form-field>
+    <br>
+</form><br>
+<button mat-raised-button (click)="createFixedDepositAcct()">4. Create Fixed Deposit Account</button><br>
+
+<form [formGroup]="fifthFormGroup">
+    <mat-form-field>
+        <mat-label>Fixed Deposit Account ID</mat-label>
+        <input matInput formControlName="fixedDepositAcctId" placeholder="QKBI312 ">
+    </mat-form-field>
+    <br>
+</form><br>
+<button mat-raised-button (click)="depositToFixedDepositAccount()">4.1 Fixed Deposit Account - Deposit</button><br>
+<button mat-raised-button (click)="startMaturityDate()">4.2 Start Maturity Date</button><br>
+
 
 <br>
 <!-- <button mat-icon-button (click)="createTodo()">Add Todo</button><br> -->

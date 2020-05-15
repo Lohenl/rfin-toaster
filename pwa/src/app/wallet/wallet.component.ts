@@ -17,6 +17,9 @@ export class WalletComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
+  fifthFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder, private apiService: APIService, private mambuService: MambuService) { }
 
@@ -46,6 +49,15 @@ export class WalletComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       allTxAcctQueryId: ['']
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      acctHolderId: ['']
+    });
+    this.fourthFormGroup = this._formBuilder.group({
+      loanId: ['']
+    });
+    this.fifthFormGroup = this._formBuilder.group({
+      fixedDepositAcctId: ['']
     });
   }
 
@@ -326,6 +338,265 @@ export class WalletComponent implements OnInit {
         this.lastResponse = JSON.stringify(response);
       })
       .catch(error => {
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  mockLoan = {
+    "loanAccount": {
+      "accountHolderType": "CLIENT",
+      "accountHolderKey": "8a8e879472175064017219acd65c2478",
+      "productTypeKey": "8a8e867271bd280c0171bf768cc31a89",
+      "assignedBranchKey": "40288100720236180172023639d30115",
+      "loanName": "Student Loan",
+      "loanAmount": 1010,
+      "interestRate": "2",
+      "arrearsTolerancePeriod": "0",
+      "gracePeriod": "0",
+      "repaymentInstallments": "10",
+      "repaymentPeriodCount": "1",
+      "periodicPayment": "0",
+      "repaymentPeriodUnit": "WEEKS",
+      "disbursementDetails": {
+        "customInformation": [
+          {
+            "value": "unique identifier for this transaction",
+            "customFieldID": "IDENTIFIER_TRANSACTION_CHANNEL_I"
+          }
+        ]
+      }
+    }
+  }
+
+  createLoanAccount() {
+    let loan = this.mockLoan;
+    let acctHolderId = this.thirdFormGroup.get('acctHolderId').value;
+    loan.loanAccount.accountHolderKey = acctHolderId;
+    let init = {
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {},
+      body: loan
+    };
+    API
+      .post(this.apiName, '/api/mambu-loans/', init)
+      .then(response => {
+        console.log(response)
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  mockLoanDisbursement = {
+    "type": "DISBURSEMENT",
+    "method": "bank",
+    "customInformation": [
+      {
+        "value": "unique identifier for transaction",
+        "customFieldID": "IDENTIFIER_TRANSACTION_CHANNEL_I"
+      }
+    ]
+  }
+  disburseLoanToSavingsAcct() {
+    let loanDisbursement = this.mockLoanDisbursement;
+    let loanId = this.fourthFormGroup.get('loanId').value;
+    let init = {
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {},
+      body: loanDisbursement
+    };
+    API
+      .post(this.apiName, '/api/mambu-loans/' + loanId + '/transactions', init)
+      .then(response => {
+        console.log(response)
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  mockFee = {
+    "type": "FEE",
+    "amount": "5",
+    "notes": "string"
+  }
+
+  applyFeeToLoanAccount() {
+    let fee = this.mockFee;
+    let loanId = this.fourthFormGroup.get('loanId').value;
+    let init = {
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {},
+      body: fee
+    };
+    API
+      .post(this.apiName, '/api/mambu-loans/' + loanId + '/transactions', init)
+      .then(response => {
+        console.log(response)
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  getAllTxForLoanAccount() {
+    let loanId = this.fourthFormGroup.get('loanId').value;
+    API
+      .get(this.apiName, '/api/mambu-loans/' + loanId + '/transactions', this.myInit)
+      .then(response => {
+        console.log(response);
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  getOneTxByLoanId() {
+    let loanId = this.fourthFormGroup.get('loanId').value;
+    API
+      .get(this.apiName, '/api/mambu-loans/' + loanId + '/transactions?offset=0&limit=1', this.myInit)
+      .then(response => {
+        console.log(response);
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  getLoanAccount() {
+    let loanId = this.fourthFormGroup.get('loanId').value;
+    API
+      .get(this.apiName, '/api/mambu-loans/' + loanId, this.myInit)
+      .then(response => {
+        console.log(response);
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  mockFixedDepositAccount = {
+    "savingsAccount": {
+      "notes": "",
+      "name": "Fixed Deposit Account",
+      "accountHolderType": "CLIENT",
+      "accountHolderKey": "{{clientId}}",
+      "accountState": "APPROVED",
+      "productTypeKey": "8a8e867271bd280c0171bf768b9c1a81",
+      "assignedBranchKey": "40288100720236180172023639d30115",
+      "accountType": "FIXED_DEPOSIT",
+      "currencyCode": "SGD",
+      "interestSettings": {
+        "interestRate": "2"
+      }
+    }
+  }
+
+  createFixedDepositAcct() {
+    let fixedDepositAcct = this.mockFixedDepositAccount;
+    fixedDepositAcct.savingsAccount.accountHolderKey = this.accountHolderKey;
+    let accountHolder = this.thirdFormGroup.get('acctHolderId').value;
+    fixedDepositAcct.savingsAccount.accountHolderKey = accountHolder;
+    let init = {
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {},
+      body: fixedDepositAcct
+    };
+
+    API
+      .post(this.apiName, '/api/mambu-savings', init)
+      .then(response => {
+        console.log(response)
+        this.lastResponse = JSON.stringify(response);
+        this.accountId = response.savingsAccount.id;
+      })
+      .catch(error => {
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+
+  }
+
+  mockFixedDepositDeposit = {
+    "amount": 5,
+    "notes": "Deposit into Fixed Deposit account",
+    "type": "DEPOSIT",
+    "method": "bank",
+    "customInformation": [
+      {
+        "value": "unique identifier for receipt",
+        "customFieldID": "IDENTIFIER_TRANSACTION_CHANNEL_I"
+      }
+    ]
+  }
+
+  depositToFixedDepositAccount() {
+    let transaction = this.mockFixedDepositDeposit;
+    let fixedDepositAcctId = this.fifthFormGroup.get('fixedDepositAcctId').value;
+    console.log(transaction)
+    let init = {
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {},
+      body: transaction
+    };
+    API
+      .post(this.apiName, '/api/mambu-savings/' + fixedDepositAcctId + '/transactions', init)
+      .then(response => {
+        console.log(response)
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error)
+        console.log(error.response);
+        this.lastResponse = '';
+      });
+  }
+
+  mockStartMaturityDate = {
+    "type": "START_MATURITY",
+    "valuedate": "2020-04-26",
+    "notes": "string"
+  }
+
+  startMaturityDate() {
+    let transaction = this.mockStartMaturityDate;
+    let fixedDepositAcctId = this.fifthFormGroup.get('fixedDepositAcctId').value;
+    console.log(transaction)
+    let init = {
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {},
+      body: transaction
+    };
+    API
+      .post(this.apiName, '/api/mambu-savings/' + fixedDepositAcctId + '/transactions', init)
+      .then(response => {
+        console.log(response)
+        this.lastResponse = JSON.stringify(response);
+      })
+      .catch(error => {
+        console.log(error)
         console.log(error.response);
         this.lastResponse = '';
       });
