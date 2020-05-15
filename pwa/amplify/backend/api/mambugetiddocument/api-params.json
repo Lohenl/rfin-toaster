@@ -1,14 +1,35 @@
 {
-    "paths": [],
+    "paths": [
+        {
+            "name": "/api/settings/iddocumenttemplates",
+            "lambdaFunction": "toastbankpwa52d274a2",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
     "resourceName": "mambugetiddocument",
     "apiName": "mambugetiddocument",
-    "functionArns": [],
+    "functionArns": [
+        {
+            "lambdaFunction": "toastbankpwa52d274a2"
+        }
+    ],
     "privacy": {
         "auth": 0,
         "unauth": 0,
         "authRoleName": "amplify-toastbankpwa-dev-00522-authRole",
         "unAuthRoleName": "amplify-toastbankpwa-dev-00522-unauthRole"
     },
-    "dependsOn": [],
-    "uuid": "fcf27672"
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "toastbankpwa52d274a2",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "b90c92db"
 }

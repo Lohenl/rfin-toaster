@@ -1,11 +1,51 @@
-<p>wallet works!</p>
+<p>guid: {{guid}}</p>
+<p>clientId: {{clientId}}</p>
+<p>accountHolderKey: {{accountHolderKey}}</p>
+<p>accountId: {{accountId}}</p>
+
+<button mat-raised-button (click)="testMambu3()">1. Create Client</button><br>
+<button mat-raised-button (click)="testMambu4()">2. Create Current Account</button><br>
+<button mat-raised-button (click)="testMambu5()">2.1 Current Account Deposit</button><br>
+
+<form [formGroup]="firstFormGroup">
+    <mat-form-field>
+        <mat-label>Transfer Sending Account</mat-label>
+        <input matInput formControlName="transferSendingAccount" placeholder="LZDG498" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Transfer Receiving Account</mat-label>
+        <input matInput formControlName="transferReceivingAccount" placeholder="OCZX214" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Transfer Amount</mat-label>
+        <input matInput formControlName="transferAmount" placeholder="1" required>
+    </mat-form-field>
+</form><br>
+<button mat-raised-button (click)="testMambu6()">2.2 Current Account Transfer</button><br>
+
+<form [formGroup]="secondFormGroup">
+    <mat-form-field>
+        <mat-label>Transactions Query Account</mat-label>
+        <input matInput formControlName="allTxAcctQueryId" placeholder="OCZX214" required>
+    </mat-form-field>
+    <br>
+</form><br>
+<button mat-raised-button (click)="getAllTxForCurrentAccount()">2.3 Get all Transactions for Current Account</button><br>
+<button mat-raised-button (click)="getOneTxByTxId()">2.4 Get one Transaction for Current Account</button><br>
+<button mat-raised-button (click)="getCurrentAcctById()">2.5 Get Current Account By ID</button><br>
+
+<br>
+<!-- <button mat-icon-button (click)="createTodo()">Add Todo</button><br> -->
+<button mat-stroked-button (click)="testMambu()">Mambu getiddocument</button><br>
+<button mat-stroked-button (click)="testMambu2()">Mambu transactionchannels</button><br>
+<button mat-stroked-button (click)="testGET()">Test GET</button><br>
+<button mat-stroked-button (click)="testPOST()">Test POST</button><br>
+<button mat-stroked-button (click)="testPUT()">Test PUT</button><br>
+
+<p>response: <span style="font-size: 0.8em;">{{lastResponse}}</span></p>
 
 <ul>
     <li *ngFor="let item of todos">{{item.name}} - {{item.description}}</li>
 </ul>
-
-<!-- <button mat-icon-button (click)="createTodo()">Add Todo</button><br> -->
-<button mat-icon-button (click)="testMambu()">Test Mambu</button><br>
-<button mat-icon-button (click)="testGET()">Test GET</button><br>
-<button mat-icon-button (click)="testPOST()">Test POST</button><br>
-<button mat-icon-button (click)="testPUT()">Test PUT</button><br>

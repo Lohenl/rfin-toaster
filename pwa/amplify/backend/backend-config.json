@@ -19,7 +19,16 @@
         "mambugetiddocument": {
             "service": "API Gateway",
             "providerPlugin": "awscloudformation",
-            "dependsOn": []
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "toastbankpwa52d274a2",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
         },
         "webapp": {
             "service": "API Gateway",
