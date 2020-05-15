@@ -3,7 +3,7 @@
   <main><router-outlet></router-outlet></main>
 </div>
 
-<mat-drawer-container *ngIf="!nonPwaPages.includes(router.url)" class="app-container" autosize [class.unicorn-dark-theme]="isDarkTheme">
+<mat-drawer-container fxLayout="column" fxFlex *ngIf="!nonPwaPages.includes(router.url)" class="app-container" autosize [class.unicorn-dark-theme]="isDarkTheme">
   <!-- Sidebar, separate when there's time -->
   <mat-drawer #drawer class="app-sidenav" mode="side" [(opened)]="opened">
     <mat-toolbar class="sidemenu-title" [class.unicorn-dark-theme]="isDarkTheme">
