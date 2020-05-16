@@ -2,7 +2,7 @@
   <!-- Assets Total -->
   <mat-card fxFlex="0 1 calc(50% - 32px)">
     <mat-card-header class="youhave">
-      <mat-card-title>You Currently Have:</mat-card-title>
+      <mat-card-title>Your Total Assets</mat-card-title>
     </mat-card-header>
     <mat-card-content class="youhave">
       <p>SGD $104.29</p>
@@ -12,7 +12,7 @@
   <!-- Liabilities Total -->
   <mat-card fxFlex="0 1 calc(50% - 32px)">
     <mat-card-header class="youowe">
-      <mat-card-title>You Currently Owe:</mat-card-title>
+      <mat-card-title>Total Liabilities</mat-card-title>
     </mat-card-header>
     <mat-card-content class="youowe">
       <p>SGD $50,341.51</p>
@@ -24,12 +24,13 @@
 
     <!-- Deposits -->
     <mat-expansion-panel (opened)="headeropenacct = true" (closed)="headeropenacct = false">
-      <mat-expansion-panel-header [ngClass]="{'is-open': headeropenacct === true}">
+      <mat-expansion-panel-header class="youhave" [ngClass]="{'is-open': headeropenacct === true}">
         <mat-panel-title>
           Deposits:
         </mat-panel-title>
         <mat-panel-description>
-          Your savings/current accounts
+          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropenacct === true}" >$50.02
+            Total</span>
           <mat-icon>account_circle</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
@@ -67,14 +68,106 @@
       </table>
     </mat-expansion-panel>
 
+    <!-- Investments -->
+    <mat-expansion-panel (opened)="headeropeninvestment = true" (closed)="headeropeninvestment = false">
+      <mat-expansion-panel-header class="youhave" [ngClass]="{'is-open': headeropeninvestment === true}">
+        <mat-panel-title>
+          Insurances:
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropeninvestment === true}">$6,524.02 in monthly
+            premiums for $1,200,000.00</span>
+          <mat-icon>security</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
+
+        <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-expansion-panel>
+
+    <!-- Insurance -->
+    <mat-expansion-panel (opened)="headeropeninsurance = true" (closed)="headeropeninsurance = false">
+      <mat-expansion-panel-header class="youhave" [ngClass]="{'is-open': headeropeninsurance === true}">
+        <mat-panel-title>
+          Investments:
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropeninsurance === true}">$35,212,138.44 Estimated</span>
+          <mat-icon>account_balance</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
+
+        <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-expansion-panel>
+
     <!-- Credit Cards -->
     <mat-expansion-panel (opened)="headeropencc = true" (closed)="headeropencc = false">
-      <mat-expansion-panel-header [ngClass]="{'is-open': headeropencc === true}">
+      <mat-expansion-panel-header class="youowe" [ngClass]="{'is-open': headeropencc === true}">
         <mat-panel-title>
           Credit Cards:
         </mat-panel-title>
         <mat-panel-description>
-          Your credit cards
+          <span class="overview-flavor youowe" [ngClass]="{'is-open': headeropencc === true}">$12,120.02
+            Owed</span>
           <mat-icon>credit_card</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
@@ -114,12 +207,13 @@
 
     <!-- Loans -->
     <mat-expansion-panel (opened)="headeropenloan = true" (closed)="headeropenloan = false">
-      <mat-expansion-panel-header [ngClass]="{'is-open': headeropenloan === true}">
+      <mat-expansion-panel-header class="youowe" [ngClass]="{'is-open': headeropenloan === true}">
         <mat-panel-title>
           Loans:
         </mat-panel-title>
         <mat-panel-description>
-          Your loans
+          <span class="overview-flavor youowe" [ngClass]="{'is-open': headeropenloan === true}">$38,221.49
+            Owed</span>
           <mat-icon>local_atm</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
@@ -157,51 +251,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
-    </mat-expansion-panel>
-
-    <!-- Insurance -->
-    <mat-expansion-panel (opened)="headeropeninsurance = true" (closed)="headeropeninsurance = false">
-      <mat-expansion-panel-header [ngClass]="{'is-open': headeropeninsurance === true}">
-        <mat-panel-title>
-          Insurances:
-        </mat-panel-title>
-        <mat-panel-description>
-          Your insurance plans
-          <mat-icon>security</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-
-        <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
     </mat-expansion-panel>
 
   </mat-accordion>

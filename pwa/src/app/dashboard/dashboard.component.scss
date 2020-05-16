@@ -14,8 +14,29 @@ mat-expansion-panel-header{
   transition: background-color 0.5s ease;
 }
 
-mat-expansion-panel-header.is-open {
+mat-expansion-panel-header.youhave.is-open {
   background-color: darkgreen !important;
+}
+
+mat-expansion-panel-header.youowe.is-open {
+  background-color: darkgoldenrod !important;
+}
+
+span.overview-flavor {
+  transition: color 0.5s ease;
+  font-weight: bold;
+}
+
+span.youhave {
+  color: green;
+}
+
+span.youowe {
+  color: darkorange;
+}
+
+span.is-open {
+  color: white;
 }
 
 mat-card-content.youhave {
@@ -26,7 +47,7 @@ mat-card-content.youhave {
 
 mat-card-content.youowe {
   text-align: center;
-  color: red;
+  color: darkorange;
   font-size: 2em;
 }
 
