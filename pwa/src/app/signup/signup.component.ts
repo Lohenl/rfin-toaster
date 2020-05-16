@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
       notes: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      address: ['']
+      address: ['', Validators.required]
     });
   }
 
