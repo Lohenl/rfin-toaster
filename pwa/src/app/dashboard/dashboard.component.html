@@ -10,41 +10,29 @@
         </mat-panel-title>
         <mat-panel-description>
           <span class="overview-flavor" [ngClass]="{'is-open': headeropenuser === true}">Veteran Resourceful
-            Paladin</span>
+            Dynamo</span>
           <mat-icon>account_circle</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-  
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-  
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <table mat-table [dataSource]="personalDataSource" class="mat-elevation-z8 data-table">
+
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef> Age </th>
+          <td mat-cell *matCellDef="let element"> {{element.age}} </td>
         </ng-container>
-  
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+
+        <ng-container matColumnDef="class">
+          <th mat-header-cell *matHeaderCellDef> CLASS </th>
+          <td mat-cell *matCellDef="let element"> {{element.class}} </td>
         </ng-container>
-  
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+
+        <ng-container matColumnDef="chara">
+          <th mat-header-cell *matHeaderCellDef> CLASS Characteristics </th>
+          <td mat-cell *matCellDef="let element"> {{element.chara}} </td>
         </ng-container>
-  
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr mat-header-row *matHeaderRowDef="personalDataDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: personalDataDisplayedColumns;"></tr>
       </table>
     </mat-expansion-panel>
   </mat-accordion>
@@ -52,10 +40,10 @@
   <!-- Assets Total -->
   <mat-card fxFlex="0 1 calc(50% - 32px)">
     <mat-card-header class="youhave">
-      <mat-card-title>Your Total Assets</mat-card-title>
+      <mat-card-title>Total Assets</mat-card-title>
     </mat-card-header>
     <mat-card-content class="youhave">
-      <p>SGD $104.29</p>
+      <p>SGD $35,218,712.48</p>
     </mat-card-content>
   </mat-card>
 
@@ -77,11 +65,11 @@
       <mat-expansion-panel-header class="youhave" [ngClass]="{'is-open': headeropenperks === true}">
         <div fxFlex fxLayout="row" fxLayoutAlign="space-around">
           <mat-panel-title fxFlex="1 1 calc(30%-32px)">
-            Account Perks
+            Account PΞRKS
           </mat-panel-title>
           <mat-panel-description fxFlex="1 1 calc(70%-32px)">
             <span fxFlex="1 1 auto"></span>
-            <mat-icon matTooltip="accessibility" fxFlex="0 1 2em">accessibility</mat-icon>
+            <mat-icon matTooltip="Agility" fxFlex="0 1 2em">accessibility</mat-icon>
             <mat-icon matTooltip="Enhanced Grocery Cashback" fxFlex="0 1 2em">add_shopping_cart</mat-icon>
             <mat-icon matTooltip="Fixed Deposit Plus" fxFlex="0 1 2em">alarm</mat-icon>
             <mat-icon matTooltip="Enhanced Credit Card Cashback" fxFlex="0 1 2em">card_membership</mat-icon>
@@ -90,37 +78,25 @@
           </mat-panel-description>
         </div>
       </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
+      <table mat-table [dataSource]="perksDataSource" class="mat-elevation-z8 data-table">
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
+        <ng-container matColumnDef="perk">
           <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.perk}} </td>
         </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="effect">
           <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.effect}} </td>
         </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="condition">
+          <th mat-header-cell *matHeaderCellDef> Condition </th>
+          <td mat-cell *matCellDef="let element"> {{element.condition}} </td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="perksDataDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: perksDataDisplayedColumns;"></tr>
       </table>
     </mat-expansion-panel>
 
@@ -136,37 +112,21 @@
           <mat-icon>toll</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <table mat-table [dataSource]="txSource" class="mat-elevation-z8 data-table">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <ng-container matColumnDef="desc">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="amt">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
         </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="txDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: txDisplayedColumns;"></tr>
       </table>
     </mat-expansion-panel>
 
@@ -183,37 +143,21 @@
           <mat-icon>security</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-
-        <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <table mat-table [dataSource]="txSource" class="mat-elevation-z8 data-table">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <ng-container matColumnDef="desc">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="amt">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
         </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="txDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: txDisplayedColumns;"></tr>
       </table>
     </mat-expansion-panel>
 
@@ -229,37 +173,21 @@
           <mat-icon>account_balance</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-
-        <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <table mat-table [dataSource]="txSource" class="mat-elevation-z8 data-table">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <ng-container matColumnDef="desc">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="amt">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
         </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="txDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: txDisplayedColumns;"></tr>
       </table>
     </mat-expansion-panel>
 
@@ -271,41 +199,25 @@
         </mat-panel-title>
         <mat-panel-description>
           <span class="overview-flavor youowe" [ngClass]="{'is-open': headeropencc === true}">$12,120.02
-            Owed</span>
+          </span>
           <mat-icon>credit_card</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-
-        <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <table mat-table [dataSource]="txSource" class="mat-elevation-z8 data-table">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <ng-container matColumnDef="desc">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="amt">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
         </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="txDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: txDisplayedColumns;"></tr>
       </table>
     </mat-expansion-panel>
 
@@ -317,44 +229,26 @@
         </mat-panel-title>
         <mat-panel-description>
           <span class="overview-flavor youowe" [ngClass]="{'is-open': headeropenloan === true}">$38,221.49
-            Owed</span>
+          </span>
           <mat-icon>local_atm</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
-
-        <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <table mat-table [dataSource]="txSource" class="mat-elevation-z8 data-table">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <ng-container matColumnDef="desc">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="amt">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
         </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="txDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: txDisplayedColumns;"></tr>
       </table>
-
     </mat-expansion-panel>
 
   </mat-accordion>
