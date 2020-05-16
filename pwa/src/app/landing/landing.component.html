@@ -1,55 +1,77 @@
-<section class="container container--full">
-    <div class="content" style="position:relative;">
-        <div class="arrow" id="arrow"><img src="/assets/images/arrow-down.png"></div>
-        <h1>Universal Parallax</h1>
-        <p>A vanilla javascript plugin</p>
-    </div>
-    <div class="parallax" data-parallax-image="/assets/images/bg1.jpg"></div>
-</section>
+<a #top name="top">
+    <section class="container container--full">
+        <div class="content" style="position:relative;">
+            <div class="arrow" id="arrow"><img src="/assets/images/arrow-down.png"></div>
+            <h1>ToastBank Teller</h1>
+            <p>One-stop MasterApp from ToastBank</p>
+            <button mat-raised-button class="mat-elevation-z12" routerLink="/signup">Get down to Business!</button>
+            <button mat-raised-button class="mat-elevation-z12" color="primary" (click)="scroll(msg)">I wanna learn
+                more!</button>
+            <p style="font-size:smaller; color: gray;">For demo only, please keep refreshing if images dont load. :(</p>
+        </div>
+        <div class="parallax" data-parallax-image="https://i.imgur.com/JTvpExc.png"></div>
+    </section>
+</a>
 
-<section class="container container--small">
-    <div class="content">
-        <p>
-            <strong>Adapts to height</strong>
+<a #msg name="msg">
+    <section class="container container--full">
+        <div class="content">
+            <h2>From the ToastBank Team, with fun.</h2>
             <br>
-            Displays 100% of BG regardless
-        </p>
-    </div>
-    <div class="parallax" data-parallax-image="/assets/images/bg2.jpg"></div>
-</section>
+            <p>
+                Teller is cool. More generic Endorsement writeup.
+                <br>
+                Banking, now gamified.
+            </p>
+            <button mat-raised-button class="mat-elevation-z12" color="primary" (click)="scroll(pwa)">Next: About
+                Teller</button>
+        </div>
+        <div class="parallax" data-parallax-image="https://i.imgur.com/HCgXOsQ.png"></div>
+    </section>
+</a>
 
-<section class="container container--big">
-    <div class="content">
-        <p>
-            <strong>Container going off screen?</strong>
+<a #pwa name="pwa">
+    <section class="container container--full">
+        <div class="content">
+            <h2>Why Teller?</h2>
             <br>
-            No sweat
-        </p>
-    </div>
-    <div class="parallax" class="parallax" data-parallax-image="/assets/images/bg3.jpg"></div>
-</section>
+            <p>
+                Writeup for Teller here.
+            </p>
+            <button mat-raised-button class="mat-elevation-z12" color="primary" (click)="scroll(classes)">Next:
+                Character Classes</button>
+        </div>
+        <div class="parallax" class="parallax" data-parallax-image="/assets/images/bg3.jpg"></div>
+    </section>
+</a>
 
-<section class="container container--full">
-    <div class="content">
-        <h2>Universal Parallax</h2>
-        <p>
-            Automatically scales to the height of your container
-            <span class="hide-on-mobile"><br></span>
-            Check out <a href="https://www.npmjs.com/package/universal-parallax" target="_blank">npm</a> or <a
-                href="https://github.com/marrio-h/universal-parallax" target="_blank">github</a> for docs and download
-        </p>
-        <p>
-            Photo credits in order of appearance from <a href="https://unsplash.com/" target="_blank">unsplash</a>
-            <span class="show-on-mobile--inline">:</span>
-            <span class="hide-on-mobile"><br></span>
-            <a class="a--no-weight" href="https://unsplash.com/@dnevozhai" target="_blank">Denys Nevozhai</a>,
-            <a class="a--no-weight" href="https://unsplash.com/@rohittandon" target="_blank">Rohit Tandon</a>,
-            <span class="hide-on-mobile"><br></span>
-            <a class="a--no-weight" href="https://unsplash.com/@jim_dons" target="_blank">James Donaldson</a>,
-            <a class="a--no-weight" href="https://unsplash.com/@jampatcon" target="_blank">James Connolly</a>
-        </p>
-        <p class="p--credits">Find me on git <a href="https://github.com/marrio-h" target="_blank">@marrio-h</a></p>
+<a #classes name="classes">
+    <section class="container container--full">
+        <div class="content">
+            <h2>Account Classes? What's that?</h2>
+            <br>
+            <p>
+                Writeup for Account Classes here.
+            </p>
+            <button mat-raised-button color="primary" class="mat-elevation-z12" (click)="scroll(cta)">Next: Character
+                Classes</button>
+        </div>
+        <div class="parallax" class="parallax" data-parallax-image="/assets/images/bg3.jpg"></div>
+    </section>
+</a>
 
-    </div>
-    <div class="parallax" data-parallax-image="/assets/images/bg4.jpg"></div>
-</section>
+<a #cta name="cta">
+    <section class="container container--full">
+        <div class="content">
+            <h2>So what are you waiting for?</h2>
+            <br>
+            <p>
+                Writeup for CTA here.
+            </p>
+            <button mat-stroked-button class="mat-elevation-z12" (click)="scroll(top)">Back to Top</button>
+            <button mat-raised-button class="mat-elevation-z12" routerLink="/signup" color="primary">Get down to
+                Business!</button>
+        </div>
+        <div class="parallax" class="parallax" data-parallax-image="/assets/images/bg3.jpg"></div>
+    </section>
+</a>

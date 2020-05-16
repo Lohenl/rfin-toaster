@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'wallet', loadChildren: () => import('./wallet/wallet.module').then(m => m.WalletModule) },
   { path: 'lifestyle', loadChildren: () => import('./lifestyle/lifestyle.module').then(m => m.LifestyleModule) },
   { path: 'error404', loadChildren: () => import('./error404/error404.module').then(m => m.Error404Module) },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'home', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'shoobplaceholder', loadChildren: () => import('./shoobplaceholder/shoobplaceholder.module').then(m => m.ShoobplaceholderModule) },
   { path: '**', redirectTo: 'error404' }

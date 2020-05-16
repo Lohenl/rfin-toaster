@@ -10,7 +10,7 @@ export class AppComponent {
 
   constructor(public router: Router) { }
 
-  title = "TOΛZTΞR";
+  title = "TΞLLΞR";
   showFiller = false;
   opened = true;
   isDarkTheme = true;

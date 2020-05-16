@@ -9,35 +9,39 @@ declare var universalParallax: any;
 })
 export class LandingComponent implements OnInit {
 
-  up:any;
+  up: any;
 
-  constructor( updates: SwUpdate ) {
+  constructor(updates: SwUpdate) {
     //TODO: Somehow subscribing to swupdate is sufficient to fix opaque SW image load :v
     //TODO: Doesnt work on Amplify :(
     //TODO DODO DODO DODODO DOOOOO: Hash Routing strategy solved non-pwa sticky-activated router 
     //DODODODO: Would need to see if doUPRender should be on cons or ngoninit
-    console.log('LC constructor up.init()');
+    // console.log('LC constructor up.init()');
     updates.available.subscribe(event => {
-      console.log('current version is', event.current);
-      console.log('available version is', event.available);
+      // console.log('current version is', event.current);
+      // console.log('available version is', event.available);
     });
     updates.activated.subscribe(event => {
-      console.log('old version was', event.previous);
-      console.log('new version is', event.current);
+      // console.log('old version was', event.previous);
+      // console.log('new version is', event.current);
     });
     this.doUPRender();
   }
 
   ngOnInit(): void {
-    console.log('LC ngoninit up.init()');
+    // console.log('LC ngoninit up.init()');
     this.doUPRender();
   }
 
   doUPRender(): void {
     // run universal parallax JS
-    console.log('doUPRender()');
+    // console.log('doUPRender()');
     this.up = new universalParallax().init({
       speed: 4
     });
+  }
+
+  scroll($element: HTMLElement): void {
+    $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }
 }
