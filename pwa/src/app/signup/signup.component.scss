@@ -9,3 +9,35 @@
 mat-vertical-stepper {
     width: 100%;
 }
+
+mat-form-field {
+    margin: 10px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.toast-header-image {
+    background-image: url('https://i.imgur.com/blYAepC.jpg');
+    background-size: cover;
+}
+
+mat-card {
+    margin:10px;
+}
+
+.signup-section {
+    margin: 10px;
+}
+
+.fwd-text {
+    color: orange;
+    font-weight: bold;
+}
+
+.singpass-text{
+    color: red;
+    font-weight: bold;
+}

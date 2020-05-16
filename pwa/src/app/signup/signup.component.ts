@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -17,24 +12,29 @@ export class SignupComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
+      nric: ['', Validators.required],
+      birthdate: ['', Validators.required],
+      phone: ['', Validators.required],
       address: ['', Validators.required],
-      mobile: ['', Validators.required],
-      education: ['', Validators.required]
+      email: ['', Validators.required],
+      notifyvia: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       address: ['', Validators.required]
     });
   }
+
+  createdClientId: any;
+
+  notifyOptions: any[] = [
+    {value: 'email', viewValue: 'Email'},
+    {value: 'phone', viewValue: 'Phone'},
+    {value: 'mail', viewValue: 'Mailed Letter'}
+  ];
 
 }
