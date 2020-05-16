@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
   headeropenloan = false;
   headeropeninsurance = false;
   headeropeninvestment = false;
+  headeropenperks = false;
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;

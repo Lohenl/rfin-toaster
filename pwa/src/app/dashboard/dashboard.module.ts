@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -26,7 +27,8 @@ import { MatTableModule } from '@angular/material/table';
     MatFormFieldModule,
     MatExpansionModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule
   ]
 })
 export class DashboardModule { }

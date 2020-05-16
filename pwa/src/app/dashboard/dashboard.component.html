@@ -22,6 +22,58 @@
   <!-- Account Overview Accordion -->
   <mat-accordion fxFlex="0 1 calc(100% - 32px)" class="example-headers-align">
 
+    <!-- Perks -->
+    <mat-expansion-panel (opened)="headeropenperks = true" (closed)="headeropenperks = false">
+      <mat-expansion-panel-header class="youhave" [ngClass]="{'is-open': headeropenperks === true}">
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-around">
+          <mat-panel-title fxFlex="1 1 calc(30%-32px)">
+            Account Perks
+          </mat-panel-title>
+          <mat-panel-description fxFlex="1 1 calc(70%-32px)">
+            <span fxFlex="1 1 auto"></span>
+            <mat-icon matTooltip="accessibility" fxFlex="0 1 2em">accessibility</mat-icon>
+            <mat-icon matTooltip="Enhanced Grocery Cashback" fxFlex="0 1 2em">add_shopping_cart</mat-icon>
+            <mat-icon matTooltip="Fixed Deposit Plus" fxFlex="0 1 2em">alarm</mat-icon>
+            <mat-icon matTooltip="Enhanced Credit Card Cashback" fxFlex="0 1 2em">card_membership</mat-icon>
+            <mat-icon matTooltip="Frequent Flyer" fxFlex="0 1 2em">flight_takeoff</mat-icon>
+            <span fxFlex="1 1 auto"></span>
+          </mat-panel-description>
+        </div>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 data-table">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-expansion-panel>
+
     <!-- Deposits -->
     <mat-expansion-panel (opened)="headeropenacct = true" (closed)="headeropenacct = false">
       <mat-expansion-panel-header class="youhave" [ngClass]="{'is-open': headeropenacct === true}">
@@ -29,7 +81,7 @@
           Deposits:
         </mat-panel-title>
         <mat-panel-description>
-          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropenacct === true}" >$50.02
+          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropenacct === true}">$50.02
             Total</span>
           <mat-icon>account_circle</mat-icon>
         </mat-panel-description>
@@ -75,7 +127,8 @@
           Insurances:
         </mat-panel-title>
         <mat-panel-description>
-          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropeninvestment === true}">$6,524.02 in monthly
+          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropeninvestment === true}">$6,524.02 in
+            monthly
             premiums for $1,200,000.00</span>
           <mat-icon>security</mat-icon>
         </mat-panel-description>
@@ -121,7 +174,8 @@
           Investments:
         </mat-panel-title>
         <mat-panel-description>
-          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropeninsurance === true}">$35,212,138.44 Estimated</span>
+          <span class="overview-flavor youhave" [ngClass]="{'is-open': headeropeninsurance === true}">$35,212,138.44
+            Estimated</span>
           <mat-icon>account_balance</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
