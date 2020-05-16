@@ -1,26 +1,24 @@
 <div class="signup-section" fxFlex fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column"
     fxLayoutAlign="space-around flex-start">
     <mat-vertical-stepper fxFlex="0 1 100%" [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Hello!</ng-template>
-                <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
-                    <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
-                        <mat-card-header>
-                            <div mat-card-avatar class="example-header-image"></div>
-                            <mat-card-title>Hi, how are you?</mat-card-title>
-                            <mat-card-subtitle>Shoob</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>I am Shoob the Shibe, and I will get you started on your digital banking journey - how
-                                exciting!</p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </form>
+        <mat-step>
+            <ng-template matStepLabel>Hello!</ng-template>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
+                <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Hi, how are you?</mat-card-title>
+                        <mat-card-subtitle>Shoob</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>I am Shoob the Shibe, and I will get you started on your digital banking journey - how
+                            exciting!</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </mat-step>
         <mat-step [stepControl]="firstFormGroup">
             <ng-template matStepLabel>Tell us about yourself!</ng-template>
@@ -41,8 +39,20 @@
                                     even
                                     <span class="singpass-text">Singpass</span>! Ain't that cool? 😎</p>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
-                                    <mat-label>Name</mat-label>
-                                    <input matInput placeholder="Last name, First name" formControlName="name" required>
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput placeholder="Shoob" formControlName="firstName" required>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="0 1 calc(50%-32px)">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput placeholder="De Woob" formControlName="lastName" required>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="0 1 calc(50%-32px)">
+                                    <mat-label>Preferred Language</mat-label>
+                                    <mat-select formControlName="preferredLanguage" required>
+                                        <mat-option *ngFor="let option of languageOptions" [value]="option.value">
+                                            {{option.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>NRIC/Identification Number</mat-label>
@@ -50,7 +60,9 @@
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>Date of Birth</mat-label>
-                                    <input matInput placeholder="MM/DD/YYYY (Winston is lazy to import libs)" [matDatepicker]="myDatepicker" formControlName="birthdate" required>
+                                    <input matInput
+                                        placeholder="MM/DD/YYYY (Too lazy to import momentJS, just click ---->)"
+                                        [matDatepicker]="myDatepicker" formControlName="birthdate" required>
                                     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #myDatepicker></mat-datepicker>
                                 </mat-form-field>
@@ -60,8 +72,13 @@
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 100%">
                                     <mat-label>Mailing Address</mat-label>
-                                    <input matInput formControlName="address" placeholder="Ex. 1 Main St, New York, NY"
-                                        required>
+                                    <input matInput formControlName="address"
+                                        placeholder="1 Doge Shed, Doggo Street, Dogoland 1234" required>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="0 1 100%">
+                                    <mat-label>Share something cool about yourself!</mat-label>
+                                    <input matInput formControlName="notes"
+                                        placeholder="I love borking with my 2 subwoofers!" required>
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>Email</mat-label>
@@ -69,7 +86,7 @@
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>Notify me of application result via..</mat-label>
-                                    <mat-select [(ngModel)]="notifyOptions" formControlName="notifyvia" required>
+                                    <mat-select formControlName="notifyvia" required>
                                         <mat-option *ngFor="let option of notifyOptions" [value]="option.value">
                                             {{option.viewValue}}
                                         </mat-option>
@@ -77,84 +94,98 @@
                                 </mat-form-field>
                             </div>
                         </form>
+                        <p *ngIf="!!clientId">
+                            Just for Demo's sake, the clientId is <span class="tb-character-text">{{clientId}}</span>, and the accountHolderKey
+                            is <span class="tb-character-text">{{accountHolderKey}}</span>! Click again to create more accounts because we dont have any Rule
+                            Engines at work lol. But we'll use this one to add an account!
+                        </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button fxFlex="0 1 50%" mat-raised-button color="warn" matStepperPrevious>Back</button>
-                        <button fxFlex="0 1 50%" mat-raised-button color="primary" matStepperNext>Next</button>
+                        <div fxFlex fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column"
+                            fxLayoutAlign="space-around flex-start" fxLayoutAlign.xs="space-around stretch"
+                            fxLayoutAlign.sm="space-around stretch">
+                            <button fxFlex="0 1 calc(100%-32px)" mat-raised-button color="accent"
+                                (click)="doSignUp()">Submit~!</button>
+                            <button fxFlex="0 1 calc(50%-32px)" mat-raised-button color="warn"
+                                matStepperPrevious>Back</button>
+                            <button fxFlex="0 1 calc(50%-32px)" mat-raised-button color="primary" matStepperNext>I've
+                                got my Account!</button>
+                        </div>
                     </mat-card-actions>
                 </mat-card>
             </div>
         </mat-step>
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Your New Toastbank Account!</ng-template>
-                <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
-                    <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
-                        <mat-card-header>
-                            <div mat-card-avatar class="example-header-image"></div>
-                            <mat-card-title>Good things come to those who wait!</mat-card-title>
-                            <mat-card-subtitle>Shoob</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p> Cool, we would normally be careful about putting your snazzy new bank account details
-                                here, and there's a ton of other rules we can't cover in 48 hours.. So, for demo showoff
-                                purposes you go by the ID of {{createdClientId}}!</p>
-                            <p>
-                                Now that you have a digibank account like you would in an MMO, would you like to speak
-                                with Toasty to find out what TOASTBANK CHARACTER CLASS you are? (Trust me, we tried to
-                                make it fun!) 😁</p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button fxFlex="0 1 50%" mat-raised-button color="warn" routerLink="/lifestyle">Nah, I'll
+        <mat-step>
+            <ng-template matStepLabel>Your New Toastbank Account!</ng-template>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
+                <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Good things come to those who wait!</mat-card-title>
+                        <mat-card-subtitle>Shoob</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p> Cool, we would normally be careful about putting your snazzy new bank account details
+                            here, and there's a ton of other rules we can't cover in 48 hours.. So, for demo showoff
+                            purposes you go by the ID of {{createdClientId}}!</p>
+                        <p>
+                            Now that you have a digibank account like you would in an MMO, would you like to speak
+                            with Toasty to find out what <span class="tb-character-text">TOASTBANK CHARACTER
+                                CLASS</span> you are? (Trust me, we tried to
+                            make it fun!) 😁</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div fxFlex fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column"
+                            fxLayoutAlign="space-around flex-start" fxLayoutAlign.xs="space-around stretch"
+                            fxLayoutAlign.sm="space-around stretch">
+                            <button fxFlex="0 1 calc(50%-32px)" mat-raised-button color="warn"
+                                routerLink="/lifestyle">Nah, I'll
                                 check out the Discover page instead!</button>
-                            <button fxFlex="0 1 50%" mat-raised-button color="primary" matStepperNext>OK, sure!</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </form>
+                            <button fxFlex="0 1 calc(50%-32px)" mat-raised-button color="primary" matStepperNext>OK,
+                                sure!</button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Meet Toasty!</ng-template>
-                <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
-                    <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
-                        <mat-card-header>
-                            <div mat-card-avatar class="toast-header-image"></div>
-                            <mat-card-title>Here's the fun part..</mat-card-title>
-                            <mat-card-subtitle>Toasty</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>I'm Toasty. I'm here to help you discover what ToastBank Character Class you can be!</p>
-                            <p>Not to worry though, you can always change your preferences later once we have a
-                                dedicated page.</p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </form>
+        <mat-step>
+            <ng-template matStepLabel>Meet Toasty!</ng-template>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
+                <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <div mat-card-avatar class="toast-header-image"></div>
+                        <mat-card-title>Here's the fun part..</mat-card-title>
+                        <mat-card-subtitle>Toasty</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>I'm Toasty. I'm here to help you discover what ToastBank Character Class you can be!</p>
+                        <p>Not to worry though, you can always change your preferences later once we have a
+                            dedicated page.</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Meet the ToastBank Character Classes!</ng-template>
-                <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
-                    <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
-                        <mat-card-header>
-                            <div mat-card-avatar class="toast-header-image"></div>
-                            <mat-card-title>Who's there?</mat-card-title>
-                            <mat-card-subtitle>Toasty</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>There's supposed to be an image about the different classes, and a bried explanation
-                                here, though a video would be nicer in the future, haha.</p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </form>
+        <mat-step>
+            <ng-template matStepLabel>Meet the ToastBank Character Classes!</ng-template>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
+                <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <div mat-card-avatar class="toast-header-image"></div>
+                        <mat-card-title>Who's there?</mat-card-title>
+                        <mat-card-subtitle>Toasty</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>There's supposed to be an image about the different classes, and a bried explanation
+                            here, though a video would be nicer in the future, haha.</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup">
@@ -177,46 +208,42 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>The right Perks for the right Class!</ng-template>
-                <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
-                    <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
-                        <mat-card-header>
-                            <div mat-card-avatar class="toast-header-image"></div>
-                            <mat-card-title>It's dangerous to go alone, take these!</mat-card-title>
-                            <mat-card-subtitle>Toasty</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>There's supposed to some customized advisory plan, with some funky stuff using AWS
-                                Personalize. Hee.</p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </form>
+        <mat-step>
+            <ng-template matStepLabel>The right Perks for the right Class!</ng-template>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
+                <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <div mat-card-avatar class="toast-header-image"></div>
+                        <mat-card-title>It's dangerous to go alone, take these!</mat-card-title>
+                        <mat-card-subtitle>Toasty</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>There's supposed to some customized advisory plan, with some funky stuff using AWS
+                            Personalize. Hee.</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>LET'S ROLL!!</ng-template>
-                <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
-                    <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
-                        <mat-card-header>
-                            <div mat-card-avatar class="toast-header-image"></div>
-                            <mat-card-title>Good Luck!</mat-card-title>
-                            <mat-card-subtitle>Toasty</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>I'm supposed to have a Call to Action here. Not much time to think, though. 😅</p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </form>
+        <mat-step>
+            <ng-template matStepLabel>LET'S ROLL!!</ng-template>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
+                <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <div mat-card-avatar class="toast-header-image"></div>
+                        <mat-card-title>Good Luck!</mat-card-title>
+                        <mat-card-subtitle>Toasty</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>I'm supposed to have a Call to Action here. Not much time to think, though. 😅</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </mat-step>
     </mat-vertical-stepper>
     <!-- <button fxFlex="0 1 100%" mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
