@@ -28,6 +28,21 @@ button {
     background-size: cover;
 }
 
+.asectic-header-image {
+    background-image: url('/assets/images/icon_asectic.png');
+    background-size: cover;
+}
+
+.provider-header-image {
+    background-image: url('/assets/images/icon_provider.png');
+    background-size: cover;
+}
+
+.dynamo-header-image {
+    background-image: url('/assets/images/icon_dynamo.png');
+    background-size: cover;
+}
+
 mat-card {
     margin:10px;
 }
@@ -49,4 +64,8 @@ mat-card {
 .tb-character-text{
     color: orange;
     font-weight: bold;
+}
+
+mat-icon {
+    font-size: 2em;
 }

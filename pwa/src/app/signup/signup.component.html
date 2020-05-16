@@ -100,7 +100,8 @@
                                 </div>
                             </form>
                             <p>
-                                <span class="tb-character-text">Pardon the onusually loose UX</span>, there's something wrong with Angular MatStepper in v9 where I
+                                <span class="tb-character-text">Pardon the onusually loose UX</span>, there's something
+                                wrong with Angular MatStepper in v9 where I
                                 cannot
                                 'lock' the guided steps, so I'm just placing an awkward action set. :p You can still
                                 async
@@ -195,7 +196,7 @@
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Meet the ToastBank Character Classes!</ng-template>
+                <ng-template matStepLabel>Know the CLASSΞS!</ng-template>
                 <div fxFlex fxLayout="row wrap" fxLayoutAlign="justify flex-start">
                     <mat-card fxFlex="0 1 100%" class="mat-elevation-z8">
                         <mat-card-header>
@@ -204,11 +205,71 @@
                             <mat-card-subtitle>Toasty</mat-card-subtitle>
                         </mat-card-header>
                         <mat-card-content>
-                            <p>There's supposed to be an image about the different classes, and a bried explanation
-                                here, though a video would be nicer in the future, haha.</p>
+                            <div fxFlex fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column"
+                                fxLayoutAlign="space-around flex-start" fxLayoutAlign.xs="space-around stretch"
+                                fxLayoutAlign.sm="space-around stretch">
+                                <p fxFlex="0 1 100%">We now have 3 CLASSΞS, each tailored to different financial needs
+                                    and wants. Take a
+                                    look!</p>
+                                <mat-card class="mat-elevation-z8" fxFlex="0 1 calc(33%-32px)">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="asectic-header-image"></div>
+                                        <mat-card-title>Asectic</mat-card-title>
+                                        <mat-card-subtitle>Austere and Non-indulgent</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p>
+                                            Asectics have the very highest level of financial discipline, which serves
+                                            them well in achieving their financial goals.
+                                        </p>
+                                        <br>
+                                        <h2>Recommended Perks</h2> 
+                                        <mat-icon matTooltip="Fixed Deposit Plus">alarm</mat-icon> 
+                                        <mat-icon matTooltip="Savings Supercharger">battery_charging_full</mat-icon> 
+                                        <mat-icon matTooltip="Forturnate Fee Freeze">ac_unit</mat-icon>
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="mat-elevation-z8" fxFlex="0 1 calc(33%-32px)">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="provider-header-image"></div>
+                                        <mat-card-title>Provider</mat-card-title>
+                                        <mat-card-subtitle>Integrous and Caring</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p>
+                                            Providers are a mighty pillar of support for those close to them. They use
+                                            their funds generously, yet prudently.
+                                        </p>
+                                        <br>
+                                        <h2>Recommended Perks</h2>
+                                        <mat-icon matTooltip="Fixed Deposit Plus">alarm</mat-icon> 
+                                        <mat-icon matTooltip="Savings Supercharger">battery_charging_full</mat-icon> 
+                                        <mat-icon matTooltip="Enhanced Grocery Cashback">add_shopping_cart</mat-icon>
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="mat-elevation-z8" fxFlex="0 1 calc(33%-32px)">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="dynamo-header-image"></div>
+                                        <mat-card-title>Dynamo</mat-card-title>
+                                        <mat-card-subtitle>Enthusiastic and Risk-Taking</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p>
+                                            Dynamos have need for speed, a taste for the finer things in life, and a
+                                            high risk appetite.
+                                        </p>
+                                        <br>
+                                        <h2>Recommended Perks</h2>
+                                        <mat-icon matTooltip="Enhanced Credit Card Cashback">card_membership</mat-icon> 
+                                        <mat-icon matTooltip="Agility">accessibility</mat-icon> 
+                                        <mat-icon matTooltip="Enhanced Grocery Cashback">add_shopping_cart</mat-icon>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
                         </mat-card-content>
                         <mat-card-actions>
-                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Begin</button>
+                            <button fxFlex="0 1 100%" mat-raised-button color="primary" matStepperNext>Next: Which CLASS
+                                is best for you?</button>
                         </mat-card-actions>
                     </mat-card>
                 </div>
