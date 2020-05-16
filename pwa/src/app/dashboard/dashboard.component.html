@@ -81,12 +81,12 @@
       <table mat-table [dataSource]="perksDataSource" class="mat-elevation-z8 data-table">
 
         <ng-container matColumnDef="perk">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <th mat-header-cell *matHeaderCellDef> Perk </th>
           <td mat-cell *matCellDef="let element"> {{element.perk}} </td>
         </ng-container>
 
         <ng-container matColumnDef="effect">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef> Effect </th>
           <td mat-cell *matCellDef="let element"> {{element.effect}} </td>
         </ng-container>
 

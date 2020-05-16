@@ -25,14 +25,6 @@ const TX_DATA: any[] = [
   { date: '17 MAY 2020', desc: 'RZR-112-444', amt: '66.00' },
 ]
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
-];
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -54,9 +46,6 @@ export class DashboardComponent implements OnInit {
   headeropeninvestment = false;
   headeropenperks = false;
   headeropenuser = false;
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
 
   personalDataDisplayedColumns: string[] = ['age', 'class', 'chara'];
   personalDataSource = PERSONAL_DATA;
