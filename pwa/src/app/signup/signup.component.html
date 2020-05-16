@@ -50,7 +50,7 @@
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>Date of Birth</mat-label>
-                                    <input matInput [matDatepicker]="myDatepicker" formControlName="birthdate" required>
+                                    <input matInput placeholder="MM/DD/YYYY (Winston is lazy to import libs)" [matDatepicker]="myDatepicker" formControlName="birthdate" required>
                                     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #myDatepicker></mat-datepicker>
                                 </mat-form-field>
@@ -65,7 +65,7 @@
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>Email</mat-label>
-                                    <input matInput placeholder="12345678" formControlName="phone" required>
+                                    <input matInput placeholder="shoob@woob.com" formControlName="phone" required>
                                 </mat-form-field>
                                 <mat-form-field fxFlex="0 1 calc(50%-32px)">
                                     <mat-label>Notify me of application result via..</mat-label>

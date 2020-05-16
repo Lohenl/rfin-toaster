@@ -135,23 +135,23 @@
       <!-- This fills the remaining space of the current row -->
       <span class="toolbar-spacer"></span>
       <span>
-        <button mat-icon-button (click)="isDarkTheme = !isDarkTheme">
+        <button mat-icon-button (click)="isDarkTheme = !isDarkTheme" matTooltip="Switch between Dark and Light mode" [matTooltipPosition]="'below'">
           <mat-icon *ngIf="isDarkTheme">brightness_5</mat-icon>
           <mat-icon *ngIf="!isDarkTheme">brightness_4</mat-icon>
         </button>
       </span>
       <span>
-        <button mat-icon-button>
+        <button mat-icon-button matTooltip="Inbox" [matTooltipPosition]="'below'">
           <mat-icon>inbox</mat-icon>
         </button>
       </span>
       <span>
-        <button mat-icon-button>
+        <button mat-icon-button matTooltip="Settings" [matTooltipPosition]="'below'">
           <mat-icon>settings</mat-icon>
         </button>
       </span>
       <span>
-        <button mat-icon-button>
+        <button mat-icon-button matTooltip="Account" [matTooltipPosition]="'below'">
           <mat-icon>account_circle</mat-icon>
         </button>
       </span>
