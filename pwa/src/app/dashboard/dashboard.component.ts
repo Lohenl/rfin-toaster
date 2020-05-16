@@ -27,12 +27,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clientName = "Jackson Jin Oo Lui";
+
   headeropenacct = false;
   headeropencc = false;
   headeropenloan = false;
   headeropeninsurance = false;
   headeropeninvestment = false;
   headeropenperks = false;
+  headeropenuser = false;
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
