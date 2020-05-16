@@ -26,7 +26,12 @@ The pages you would want to visit in order:
 * Dark/Light Theme switcher located at top right bar 
 * There is some effort put into making some of pages responsive, give it a spin with Chrome DevTools!
 * You can check for PWA compliance with DevTools also, under the audit tab
-* How to install a PWA on mobile or ? https://medium.com/progressivewebapps/how-to-install-a-pwa-to-your-device-68a8d37fadc1
 
+## How to install a PWA on mobile or desktop?
+
+https://medium.com/progressivewebapps/how-to-install-a-pwa-to-your-device-68a8d37fadc1
+
+Desktop samples here:
 ![](https://i.imgur.com/CzxN8LL.png)
 ![](https://i.imgur.com/0TWz19s.png)
+![](https://i.imgur.com/kDheQIf.png)
